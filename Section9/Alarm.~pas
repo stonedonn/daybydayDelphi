@@ -1,0 +1,41 @@
+unit Alarm;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ExtCtrls, Buttons, StdCtrls;
+
+type
+  TForm1 = class(TForm)
+    Panel1: TPanel;
+    Button1: TButton;
+    SpeedButton1: TSpeedButton;
+    SpeedButton2: TSpeedButton;
+    Timer1: TTimer;
+    procedure Button1Click(Sender: TObject);
+    
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+  AlarmTime: TDateTime;
+  AlarmOn: Boolean;
+implementation
+
+{$R *.dfm}
+
+
+
+procedure TForm1.Button1Click(Sender: TObject);
+begin
+  AlarmTime:= StrToTime(InputBox('알람 시간 입력',
+    '알람 설정 시간을 입력하십시오',
+    TimeToStr(AlarmTime)));
+end;
+
+end.
